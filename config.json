@@ -1,16 +1,64 @@
 {
-  "token": "(Enter Token here)",
-  "prefix": "(Enter Prefix Here)",
-  "owner": "(Enter id of Bot Owner)",
-  "Channelrole": ["(Enter id of Viewing Role)", "(You can add more if you want)"],
-  "signup_color": "(Enter Hex Code for signup Embed Here)",
-  "signup_title": "(Enter Title for signup Embed Here)",
-  "answer_title": "(Enter Title for Answer Embed Here)",
-  "answer_color": "(Enter Hex Code for Answer Embed Here)",
-  "answer_description": "(Enter Answer Embed Description) (Use \n for breaking lines!)",
-  "answer_category": "(Enter id of Category for Tickets)",
+  "token": "YOUR_BOT_TOKEN_HERE",
+  "prefix": "/",
+  "owner": "807682091591925801",
+  "Channelrole": ["1515839038672863453", "1517034476012830730", "1508548773285073037", "1520428103506067456"],
+  "signup_color": "#1C00FF",
+  "signup_title": "🎫 Open a Ticket",
+  "signup_description": "Welcome to the Blue Devine Support Centre! 💙\n\nNeed assistance? Select the ticket below that best matches your issue, and one of our staff members will assist you as soon as possible.\n\n📋 Available Tickets\n\n🦖 In-Game Support\nReport rule violations, player issues, request an in-game admin, or receive assistance with anything happening on the server.\n\n🔨 Ban Appeal\nAppeal a game or Discord ban. Our staff will carefully review your appeal and provide a response.\n\n💬 General Support\nHave a question about Blue Devine, Discord, our website, rules, events, or anything else? Open a General Support ticket.\n\n💎 Prime Support\nClaim your First-Time Prime rewards or receive help with Prime purchases, donations, missing rewards, or payment issues.\n\n🐛 Bug Report\nReport bugs, glitches, exploits, or technical issues to help us improve the Blue Devine experience.\n\n📌 Before Opening a Ticket\n\n• Please choose the ticket that best matches your issue.\n• Only create one ticket per issue.\n• Include as much information and evidence as possible to help us resolve your request quickly.\n• Please be patient while waiting for a staff member to respond.\n\n💙 Thank you for choosing Blue Devine. We appreciate your support and hope you enjoy your adventure! 🦖",
+  "answer_title": "🎫 Blue Devine Support Centre",
+  "answer_color": "#1C00FF",
+  "answer_description": "Welcome to the Blue Devine Support Centre!",
+  "answer_category": "1516749180868100156",
   "allow_user_delete": false,
   "allow_user_lock": false,
   "allow_user_unlock": false,
-  "one_app": true
+  "one_app": true,
+  "tickets": [
+    {
+      "emoji": "🦖",
+      "label": "In-Game Support",
+      "description": "Report rule violations, player issues, request an in-game admin, or receive assistance with anything happening on the server.",
+      "title": "🦖 In-Game Support",
+      "color": "#1C00FF",
+      "prefix": "ingame",
+      "message": "🦖 In-Game Support\n\nHello {user}, welcome to Blue Devine In-Game Support.\n\nPlease provide the following information so we can assist you as quickly as possible:\n\n👤 In-Game Name:\n🦕 Dinosaur Played:\n🕒 Date & Time of the Incident:\n📍 Location (if known):\n📝 Detailed description of the issue:\n📎 Screenshots, videos, or other evidence (if available):\n\nIf your report involves another player, please include their in-game name and explain exactly what happened.\n\nA member of our staff team will review your ticket and respond as soon as possible. Please be patient and avoid creating multiple tickets for the same issue.\n\n💙 Thank you for helping us keep Blue Devine fair and enjoyable for everyone!"
+    },
+    {
+      "emoji": "🔨",
+      "label": "Ban Appeal",
+      "description": "Appeal a game or Discord ban. Our staff will carefully review your appeal and provide a response.",
+      "title": "🔨 Ban Appeal",
+      "color": "#1C00FF",
+      "prefix": "appeal",
+      "message": "🔨 Ban Appeal\n\nHello {user}, welcome to the Blue Devine Ban Appeal ticket.\n\nIf you believe your ban was issued unfairly or you'd like to request a second chance, please complete the following information:\n\n👤 Discord Username:\n🦖 In-Game Name:\n📅 Date of Ban (if known):\n📝 Reason for Ban (if known):\n💬 Why should your ban be reconsidered?\n📎 Any evidence or additional information (optional):\n\nPlease be honest and respectful throughout your appeal. Providing false information or being disrespectful towards staff may result in your appeal being denied.\n\nA member of our staff team will review your appeal as soon as possible. Please be patient and do not create multiple appeal tickets.\n\n💙 Thank you for your patience,\nThe Blue Devine Staff Team"
+    },
+    {
+      "emoji": "💬",
+      "label": "General Support",
+      "description": "Have a question about Blue Devine, Discord, our website, rules, events, or anything else? Open a General Support ticket.",
+      "title": "🎫 Welcome to Blue Devine Support",
+      "color": "#1C00FF",
+      "prefix": "general",
+      "message": "🎫 Welcome to Blue Devine Support\n\nHello {user}! 👋\n\nThank you for opening a support ticket.\n\nA member of our staff team will be with you as soon as possible. While you wait, please provide the following information so we can assist you faster:\n\n📌 Reason for your ticket:\n📌 Your in-game name (if applicable):\n📌 Any screenshots, videos, or evidence:\n📌 A detailed explanation of your issue:\n\nPlease remain patient and avoid pinging staff unless your issue is urgent.\n\nThank you for supporting Blue Devine! 💙"
+    },
+    {
+      "emoji": "💎",
+      "label": "Prime Support",
+      "description": "Claim your First-Time Prime rewards or receive help with Prime purchases, donations, missing rewards, or payment issues.",
+      "title": "💎 Prime Support",
+      "color": "#1C00FF",
+      "prefix": "prime",
+      "message": "💎 Prime Support\n\nHello {user}, welcome to Blue Devine Prime Support.\n\nWhether you're claiming your First-Time Prime reward or need help with a Prime purchase or donation, you've come to the right place.\n\nPlease complete the information below:\n\n👤 Discord Username:\n🦖 In-Game Name:\n🆔 Steam ID (if required):\n📋 Reason for opening this ticket: (First-Time Prime / Donation / Prime Support)\n💳 What did you purchase? (If applicable)\n📅 Date of Purchase or Date Joined Blue Devine:\n🧾 Transaction ID or Receipt: (If applicable)\n📝 Additional Information:\n\n🌟 First-Time Prime\n\nIf you're claiming First-Time Prime, our staff will verify your eligibility before granting your rewards.\n\nPlease note: First-Time Prime can only be claimed once per player. Duplicate claims will be denied.\n\n💰 Donation & Prime Purchases\n\nIf you're contacting us about a donation or Prime purchase, please attach any receipts or proof of payment to help us resolve your issue as quickly as possible.\n\nA member of our staff team will review your ticket and assist you as soon as possible.\n\n💙 Thank you for supporting Blue Devine!"
+    },
+    {
+      "emoji": "🐛",
+      "label": "Bug Report",
+      "description": "Report bugs, glitches, exploits, or technical issues to help us improve the Blue Devine experience.",
+      "title": "🐛 Bug Report",
+      "color": "#1C00FF",
+      "prefix": "bug",
+      "message": "🐛 Bug Report\n\nHello {user}, welcome to the Blue Devine Bug Report ticket.\n\nFound a bug? Please help us improve the server by providing as much information as possible.\n\n🦖 In-Game Name:\n📍 Where did the bug occur?\n📝 Describe the bug in detail:\n🔄 Steps to reproduce the bug (if known):\n📅 Date & Time:\n📎 Screenshots or Videos (highly recommended):\n\nPlease include as much detail as possible. The more information you provide, the easier it is for our team to investigate and resolve the issue.\n\nThank you for helping us make Blue Devine a better experience for everyone! 💙"
+    }
+  ]
 }
