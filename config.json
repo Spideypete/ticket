@@ -10,6 +10,7 @@
   "answer_color": "#1C00FF",
   "answer_description": "Welcome to the Blue Devine Support Centre!",
   "answer_category": "1516749180868100156",
+  "transcript_channel": "CHANNEL_ID_HERE",
   "allow_user_delete": false,
   "allow_user_lock": false,
   "allow_user_unlock": false,
