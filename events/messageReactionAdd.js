@@ -9,14 +9,29 @@ module.exports = (client, messageReaction, user) => {
 
   // Handle collectors
   if (collectors.collector.filter((e) => e.id === messageReaction.message.id).length > 0) {
-    if (messageReaction.emoji.name === '📩') {
-      let channelname = `ticket-${user.username}`;
-      channelname = channelname.replace(/\s/g, '-').toLowerCase();
+    const tickets = config.tickets && config.tickets.length ? config.tickets : null;
+    let ticket = null;
+
+    if (tickets) {
+      ticket = tickets.find((t) => t.emoji === messageReaction.emoji.name);
+    } else if (messageReaction.emoji.name === '📩') {
+      // Fallback single-ticket mode
+      ticket = {
+        title: config.answer_title,
+        message: config.answer_description,
+        color: config.answer_color,
+        category: config.answer_category,
+        prefix: 'ticket',
+      };
+    }
+
+    if (ticket) {
+      let channelname = `${ticket.prefix || 'ticket'}-${user.username}`.replace(/\s/g, '-').toLowerCase();
       if (messageReaction.message.guild.channels.cache.find((channel) => channel.name === channelname) && config.one_app) {
         user.send(`You already have an ongoing ticket.`).catch(console.error);
         return messageReaction.users.remove(user.id);
       }
-      contining(client, messageReaction.message, user);
+      contining(client, messageReaction.message, user, ticket);
       messageReaction.users.remove(user.id);
     }
   }

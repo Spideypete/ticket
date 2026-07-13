@@ -17,26 +17,39 @@ exports.run = async (client, message) => {
       });
     });
   }
+
+  const tickets = Jsonfile.tickets && Jsonfile.tickets.length ? Jsonfile.tickets : null;
+
   const signupEmbed = {
     color: Jsonfile.signup_color,
-    fields: [
-      {
-        name: Jsonfile.signup_title,
-        value: 'To create a ticket react with  📩',
-      },
-    ],
-    footer: {
-      icon_url: client.user.avatarURL(),
-    },
+    title: Jsonfile.signup_title,
+    description: Jsonfile.signup_description || 'React below to open a ticket.',
   };
+
+  if (tickets) {
+    signupEmbed.fields = tickets.map((t) => ({
+      name: `${t.emoji} ${t.label}`,
+      value: t.description || '​',
+    }));
+  }
+
   const signup = await message.channel.send({
     embeds: [signupEmbed],
   });
-  await signup.react('📩');
+
+  if (tickets) {
+    for (const t of tickets) {
+      await signup.react(t.emoji);
+    }
+  } else {
+    // Fallback: original single-ticket behaviour
+    await signup.react('📩');
+  }
+
   addToCollectors(signup.id, message.channel.id);
 };
 
-const contining = async (client, message, user) => {
+const contining = async (client, message, user, ticket) => {
   function addToTickets(messageID, channelID) {
     fs.readFile('./collectors.json', 'utf8', function readFileCallback(err, data) {
       if (err) console.error(err);
@@ -49,8 +62,10 @@ const contining = async (client, message, user) => {
     });
   }
 
-  let channel = await message.guild.channels.create(`ticket: ${user.username}`, {
-    parent: Jsonfile.answer_category,
+  const channelName = `${ticket.prefix || 'ticket'}-${user.username}`.replace(/\s/g, '-').toLowerCase();
+
+  let channel = await message.guild.channels.create(channelName, {
+    parent: ticket.category || Jsonfile.answer_category,
   });
 
   channel.permissionOverwrites.edit(message.guild.id, {
@@ -69,11 +84,11 @@ const contining = async (client, message, user) => {
   });
 
   const reactionMessageEmbed = {
-    color: Jsonfile.answer_color,
+    color: ticket.color || Jsonfile.answer_color,
     fields: [
       {
-        name: Jsonfile.answer_title,
-        value: Jsonfile.answer_description,
+        name: ticket.title || Jsonfile.answer_title,
+        value: (ticket.message || Jsonfile.answer_description).replace(/{user}/g, `<@${user.id}>`),
       },
     ],
     footer: {
